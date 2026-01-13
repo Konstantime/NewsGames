@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Game News — Админка</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- тот же header, что и на index.html -->
+    <header class="top-bar">
+      <div class="top-bar__left">
+        <!-- логотип + Game News -->
+      </div>
+
+      <div class="top-bar__center">
+        <!-- можно оставить пустым / убрать поиск -->
+      </div>
+
+      <div class="top-bar__right">
+        <button class="admin-back-button" id="adminBackButton" type="button">
+          На главную
+        </button>
+        <div class="profile-icon" id="profileButton">🛠️</div>
+      </div>
+    </header>
+
+    <main class="admin-page">
+      <section class="admin-panel">
+        <h1 class="admin-panel__title">Администрирование статей</h1>
+
+        <div class="admin-panel__actions">
+          <button
+            type="button"
+            class="admin-panel__reload"
+            id="reloadArticlesBtn"
+          >
+            Обновить список
+          </button>
+        </div>
+
+        <div class="admin-panel__content">
+          <section class="admin-articles">
+            <h2 class="admin-section__title">Существующие статьи</h2>
+            <table class="admin-articles__table" id="adminArticlesTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Название</th>
+                  <th>Дата</th>
+                  <th>Жанр</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- сюда JS подставит строки -->
+              </tbody>
+            </table>
+          </section>
+
+          <section class="admin-add">
+            <h2 class="admin-section__title">Добавить статью</h2>
+            <form id="addArticleForm" class="admin-form">
+              <label class="admin-form__field">
+                <span>Название игры</span>
+                <input type="text" name="game_name" required />
+              </label>
+
+              <label class="admin-form__field">
+                <span>Заголовок статьи</span>
+                <input type="text" name="article_title" required />
+              </label>
+
+              <label class="admin-form__field">
+                <span>Жанр</span>
+                <input type="text" name="genre" required />
+              </label>
+
+              <label class="admin-form__field">
+                <span>URL картинки (относительный)</span>
+                <input
+                  type="text"
+                  name="image_url"
+                  placeholder="images/xxx.png"
+                />
+              </label>
+
+              <label class="admin-form__field">
+                <span>Текст статьи</span>
+                <textarea name="content" rows="6" required></textarea>
+              </label>
+
+              <label class="admin-form__field">
+                <span>Автор</span>
+                <input type="text" name="author" required />
+              </label>
+
+              <label class="admin-form__field">
+                <span>Дата публикации</span>
+                <input
+                  type="text"
+                  name="published_at"
+                  placeholder="2025-12-31"
+                  required
+                />
+              </label>
+
+              <p class="admin-form__error" id="addArticleError"></p>
+              <p class="admin-form__success" id="addArticleSuccess"></p>
+
+              <button type="submit" class="admin-form__submit">Создать</button>
+            </form>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <!-- тот же футер, что и на других страницах -->
+    </footer>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

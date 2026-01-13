@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Game News Official</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="top-bar__left">
+        <img class="site-logo" src="images/logo.png" alt="Game News" />
+        <span class="neon-title">Game News</span>
+      </div>
+
+      <div class="top-bar__center">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Поиск по сайту..."
+        />
+      </div>
+
+      <div class="top-bar__right">
+        <div class="genre-filter">
+          <label for="genreSelect" class="genre-filter__label"></label>
+          <select id="genreSelect" class="genre-filter__select">
+            <option value="all">Все жанры</option>
+            <option value="RPG">RPG</option>
+            <option value="Shooter">Shooter</option>
+            <option value="Action RPG">Action RPG</option>
+            <option value="MOBA">MOBA</option>
+            <option value="Sandbox">Sandbox</option>
+            <option value="Battle Royale">Battle Royale</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Action Adventure">Action Adventure</option>
+            <option value="Hero Shooter">Hero Shooter</option>
+            <option value="Tactical Shooter">Tactical Shooter</option>
+          </select>
+
+          <button class="admin-button" id="adminButton" type="button">
+            Админка
+          </button>
+
+          <div class="profile-icon" id="profileButton">👤</div>
+        </div>
+
+        <!-- <div class="profile-icon" id="profileButton" title="Войти">👤</div> -->
+
+        <div class="login-modal" id="loginModal">
+          <div class="login-modal__backdrop"></div>
+          <div class="login-modal__window">
+            <button class="login-modal__close" type="button">&times;</button>
+            <h2 class="login-modal__title">Вход</h2>
+
+            <form class="login-form" id="loginForm">
+              <label class="login-form__field">
+                <span>Логин</span>
+                <input type="text" name="login" required />
+              </label>
+
+              <label class="login-form__field">
+                <span>Пароль</span>
+                <input type="password" name="password" required />
+              </label>
+
+              <p class="login-form__error" id="loginError"></p>
+
+              <button class="login-form__submit" type="submit">Войти</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="featured-wrapper">
+        <div class="featured-article"></div>
+      </section>
+
+      <section class="new-articles" id="newArticlesSection">
+        <h2 class="new-articles__title">Новые</h2>
+        <div class="new-articles__list"></div>
+      </section>
+
+      <section class="articles-list"></section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__column">
+          <p class="site-footer__title">Администратор</p>
+          <p>Тимофеева Кристина</p>
+          <p>Телефон: +7 (900) 000-00-00</p>
+          <p>Почта: game.news.admin@example.com</p>
+        </div>
+
+        <div class="site-footer__column">
+          <p class="site-footer__title">Жанры</p>
+          <p>RPG, Action, Shooter</p>
+          <p>Strategy, Indie</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
+
+<!-- название
+заголовок статьи
+лайки
+картинка
+содержание новости
+дата публикации
+автор
+просмотры
+жанр -->
