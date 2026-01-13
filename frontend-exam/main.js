@@ -1,10 +1,6 @@
 let allArticles = [];
 let currentGenre = "all";
-let currentQuery = "";
-
-/* ==============================
-   ФИЛЬТРЫ И ЗАГРУЗКА СТАТЕЙ
-   ============================== */
+let currentQuery = ""; 
 
 function setupGenreFilter() {
   const select = document.getElementById("genreSelect");
@@ -84,8 +80,7 @@ function applyFilters() {
 }
 
 /* ==============================
-   РЕНДЕР КАРТОЧЕК
-   ============================== */
+   РЕНДЕР КАРТОЧЕК */
 
 function renderFeatured(article) {
   const container = document.querySelector(".featured-article");
