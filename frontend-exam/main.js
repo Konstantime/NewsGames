@@ -50,7 +50,7 @@ function applyFilters() {
     );
   }
 
-  // блок "Новые" работает только если жанр не выбран (all)
+  // блок "Новые" — только если жанр all
   if (currentGenre === "all") {
     const sortedByDate = [...allArticles].sort((a, b) =>
       (b.published_at || "").localeCompare(a.published_at || "")
@@ -59,6 +59,17 @@ function applyFilters() {
     renderNewArticles(newest);
   } else {
     renderNewArticles([]);
+  }
+
+  // блок "Самые просматриваемые" — тоже только если жанр all
+  if (currentGenre === "all") {
+    const sortedByViews = [...allArticles].sort(
+      (a, b) => (b.views || 0) - (a.views || 0)
+    );
+    const mostViewed = sortedByViews.slice(0, 4);
+    renderPopularArticles(mostViewed);
+  } else {
+    renderPopularArticles([]);
   }
 
   if (filtered.length === 0) {
@@ -174,6 +185,49 @@ function renderNewArticles(articles) {
 
     overlay.appendChild(titleEl);
     overlay.appendChild(dateEl);
+
+    card.appendChild(bg);
+    card.appendChild(overlay);
+
+    container.appendChild(card);
+  });
+}
+function renderPopularArticles(articles) {
+  const section = document.getElementById("popularArticlesSection");
+  const container = document.querySelector(".popular-articles__list");
+  if (!section || !container) return;
+
+  container.innerHTML = "";
+
+  if (!articles || articles.length === 0) {
+    section.style.display = "none";
+    return;
+  }
+
+  section.style.display = "block";
+
+  articles.forEach((article) => {
+    const card = document.createElement("a");
+    card.className = "new-article-card"; // те же стили
+    card.href = `article.html?id=${article.id}`;
+
+    const bg = document.createElement("div");
+    bg.className = "new-article-card__bg";
+    bg.style.backgroundImage = `url('${article.image_url}')`;
+
+    const overlay = document.createElement("div");
+    overlay.className = "new-article-card__overlay";
+
+    const titleEl = document.createElement("h3");
+    titleEl.className = "new-article-card__title";
+    titleEl.textContent = article.article_title;
+
+    const metaEl = document.createElement("p");
+    metaEl.className = "new-article-card__date";
+    metaEl.textContent = `Просмотры: ${article.views ?? 0}`;
+
+    overlay.appendChild(titleEl);
+    overlay.appendChild(metaEl);
 
     card.appendChild(bg);
     card.appendChild(overlay);
